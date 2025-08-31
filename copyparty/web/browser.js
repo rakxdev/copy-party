@@ -14528,7 +14528,7 @@ var fileman = (function () {
 
 		exm.onkeydown = exh.onkeydown = exd.onkeydown =
 		sh_k.onkeydown = sh_pw.onkeydown = function (e) {
-			var kc = (e.code || e.key) + '';
+			var kc = (e.key || e.code) + '';
 			if (kc.endsWith('Enter'))
 				sh_apply.click();
 		};
@@ -14737,7 +14737,7 @@ var fileman = (function () {
 				(function (a) {
 					f[a].inew.onkeydown = function (e) {
 						rn_ok(a, true);
-						var kc = (e.code || e.key) + '';
+						var kc = (e.key || e.code) + '';
 						if (kc.endsWith('Enter'))
 							return rn_apply();
 					};
@@ -14835,7 +14835,7 @@ var fileman = (function () {
 		spresets();
 
 		ire.onkeydown = ifmt.onkeydown = function (e) {
-			var k = (e.code || e.key) + '';
+			var k = (e.key || e.code) + '';
 
 			if (k == 'Escape' || k == 'Esc')
 				return rn_cancel();
@@ -15307,7 +15307,7 @@ var fileman = (function () {
 			(function (a) {
 				var inew = ebi('rn_new_' + a);
 				inew.onkeydown = function (e) {
-					if (((e.code || e.key) + '').endsWith('Enter'))
+					if (((e.key || e.code) + '').endsWith('Enter'))
 						return rn_apply();
 				};
 				inew.oninput = function (e) {
@@ -16493,7 +16493,7 @@ var ahotkeys = function (e) {
 	if (QS('#bbox-overlay.visible') || modal.busy)
 		return;
 
-	var k = (e.code || e.key) + '', pos = -1, n,
+	var k = (e.key || e.code) + '', pos = -1, n,
 		ae = document.activeElement,
 		aet = ae && ae != document.body ? ae.nodeName.toLowerCase() : '';
 
@@ -16630,7 +16630,7 @@ var ahotkeys = function (e) {
 	if (n !== 0)
 		return seek_au_rel(n) || true;
 
-	if (k == 'KeyY')
+	if (k == 'KeyY' || k == 'y')
 		return msel.getsel().length ? ebi('seldl').click() :
 			showfile.active() ? ebi('dldoc').click() :
 				dl_song();
@@ -16674,18 +16674,18 @@ var ahotkeys = function (e) {
 	}
 
 	if (mp && mp.au && !mp.au.paused) {
-		if (k == 'KeyS')
+		if (k == 'KeyS' || k == 's')
 			return sel_song();
 	}
 
 	if (thegrid.en) {
-		if (k == 'KeyS' || k == 's')
+		if (k == 'KeyS' || k == 's' || k == 'S')
 			return ebi('gridsel').click();
 
-		if (k == 'KeyA' || k == 'a')
+		if (k == 'KeyA' || k == 'a' || k == 'A')
 			return QSA('#ghead a[z]')[0].click();
 
-		if (k == 'KeyD' || k == 'd')
+		if (k == 'KeyD' || k == 'd' || k == 'D')
 			return QSA('#ghead a[z]')[1].click();
 	}
 };
