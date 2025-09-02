@@ -13,15 +13,22 @@ sudo apt-get install -y ffmpeg
 
 ### 2. Install Python Dependencies
 
-The required Python library is listed in `requirements.txt`. Install it using pip:
+The required Python library is listed in `requirements.txt`. Install it using pip from the root of this project:
 
 ```bash
 pip3 install -r requirements.txt
 ```
 
-### 3. Run the Server
+### 3. Create the Uploads Directory
 
-Once the dependencies are installed, you can start the server. Make sure you are inside the `copyparty` directory, then run:
+The server configuration expects an `uploads` directory to exist. Create it now:
+```bash
+mkdir uploads
+```
+
+### 4. Run the Server
+
+Once the dependencies are installed, you can start the server. Make sure you are in the root of this project, then run:
 
 ```bash
 ./copyparty-sfx.py -c copyparty.conf
